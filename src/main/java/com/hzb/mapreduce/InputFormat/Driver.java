@@ -60,8 +60,8 @@ public class Driver  {
         job.setOutputValueClass(IntWritable.class);
 //      6 设置job的输入和输出路径
         //win本地路径
-        FileInputFormat.setInputPaths(job,new Path("E:\\JavaCode\\testTxt\\in"));
-        FileOutputFormat.setOutputPath(job,new Path("E:\\JavaCode\\testTxt\\out2"));
+        FileInputFormat.setInputPaths(job,new Path("E:\\JavaCode\\testTxt\\inputWord"));
+        FileOutputFormat.setOutputPath(job,new Path("E:\\JavaCode\\testTxt\\outWord2"));
         //打jar包在Linux中执行自己输入路径
 //        FileInputFormat.setInputPaths(job,new Path(args[0]));
 //        FileOutputFormat.setOutputPath(job,new Path(args[1]));

@@ -1,4 +1,4 @@
-package com.hzb.mapreduce.writable;
+package com.hzb.mapreduce.WritableComparable;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -7,12 +7,11 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-
 import java.io.IOException;
 
 /**
  * @author huzhibin
- * @date 2022-06-29 11:33
+ * @date 2022-06-30 21:00
  */
 public class Driver {
 
@@ -24,12 +23,12 @@ public class Driver {
         job.setMapperClass(PhoneMapper.class);
         job.setReducerClass(PhoneReducer.class);
 
-        job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(PhoneFile.class);
+        job.setMapOutputKeyClass(PhoneFile.class);
+        job.setMapOutputValueClass(Text.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
 
-        FileInputFormat.setInputPaths(job,new Path("E:\\JavaCode\\testTxt\\inputPhone"));
+        FileInputFormat.setInputPaths(job,new Path("E:\\JavaCode\\testTxt\\out"));
         FileOutputFormat.setOutputPath(job,new Path("E:\\JavaCode\\testTxt\\out333"));
 
         boolean result = job.waitForCompletion(true);//提交job，true查看完整日志
